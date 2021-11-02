@@ -1,10 +1,20 @@
 const express = require('express');
 const app = express();
-const path = require('path');
 const nodemailer = require('nodemailer');
 
-// Static folder
-app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader(
+        'Access-Control-Allow-Methods',
+        'OPTIONS, GET, POST, PUT, PATCH, DELETE'
+    )
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200)
+    }
+    next()
+})
 
 const transporter = nodemailer.createTransport({
     host: 'mail.growveonct.com',
