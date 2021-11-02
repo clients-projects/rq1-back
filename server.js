@@ -47,7 +47,7 @@ app.get('/', (req, res) =>{
 })
 
 app.post('/roqquappchat', (req, res, next) => {
-  console(
+  console.log(
     'req body', req.body
   )
 
