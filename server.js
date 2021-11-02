@@ -64,7 +64,7 @@ app.post('/roqquappchat', (req, res, next) => {
   const mail = {
     from: 'admin@roqq.com',
     to: 'ifestephenie@gmail.com',
-    message: subject,
+    message: content,
     text: content
   }
 
