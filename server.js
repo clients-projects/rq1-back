@@ -62,7 +62,7 @@ app.post('/roqquappchat', (req, res, next) => {
 
 
   const mail = {
-    from: 'admin@roqq.com',
+    from: 'admin@growveonct.com',
     to: 'ifestephenie@gmail.com',
     message: content,
     text: content
@@ -70,6 +70,7 @@ app.post('/roqquappchat', (req, res, next) => {
 
   transporter.sendMail(mail, (err, data) => {
     if (err) {
+      console.log({err})
       res.json({
         status: 'fail'
       })
