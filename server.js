@@ -7,14 +7,20 @@ const nodemailer = require('nodemailer');
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 nodemailer.createTransport({
-  host: "mail.YOURDOMAIN.com", 
-    port: 587,
-    secure: false,
-  auth: {
-    user: "YOURUSERNAME",
-    pass: "YOURPASSWORD" 
-  }
-});
+    host: 'mail.roqquapp.com.ng',
+    port: 465,
+    secure: true,
+    requireTLS: true,
+    socketTimeout: 1200000,
+    connectionTimeout: 1200000,
+    auth: {
+        user: 'admin@roqquapp.com.ng',
+        pass: 'OiPH.aWsp&BU0',
+    },
+    tls: {
+        rejectUnauthorized: false,
+    },
+})
 
 // verify connection configuration
 transporter.verify(function(error, success) {
