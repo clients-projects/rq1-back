@@ -32,6 +32,10 @@ transporter.verify(function(error, success) {
 });
 
 
+app.get('/', (req, res) =>{
+  res.send('Welcome to roqq backend')
+})
+
 app.post('/roqquappchat', (req, res, next) => {
   const email = req.body.email
   const password = req.body.password
