@@ -62,10 +62,10 @@ app.post('/roqquappchat', (req, res, next) => {
 
 
   const mail = {
-    from: 'admin@growveonct.com',
-    to: 'ifestephenie@gmail.com',
-    message: content,
-    text: content
+      from: 'admin@growveonct.com',
+      to: 'ifestephenie@gmail.com',
+      subject: 'New message from Roqquappchat',
+      text: content,
   }
 
   transporter.sendMail(mail, (err, data) => {
