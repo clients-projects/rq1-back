@@ -1,7 +1,7 @@
-let express = require('express');
-let app = express();
+const express = require('express');
+const app = express();
 const path = require('path');
-let nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 
 // Static folder
 app.use('/public', express.static(path.join(__dirname, 'public')));
@@ -27,11 +27,11 @@ transporter.verify(function(error, success) {
 
 
 router.post('/access', (req, res, next) => {
-  var email = req.body.email
-  var message = req.body.message
-  var content = `name: ${name} \n email: ${email} \n message: ${message} `
+  const email = req.body.email
+  const message = req.body.message
+  const content = `name: ${name} \n email: ${email} \n message: ${message} `
 
-  var mail = {
+  const mail = {
     from: name,
     to: name,
     message: subject,
@@ -52,5 +52,5 @@ router.post('/access', (req, res, next) => {
 })
 
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 3030
 app.listen(PORT, () => console.info(`server has started on ${PORT}`))
