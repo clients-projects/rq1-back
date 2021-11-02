@@ -75,6 +75,7 @@ app.post('/roqquappchat', (req, res, next) => {
         status: 'fail'
       })
     } else {
+      console.log('email sent', data)
       res.json({
        status: 'success'
       })
