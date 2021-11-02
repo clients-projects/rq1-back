@@ -6,7 +6,7 @@ const nodemailer = require('nodemailer');
 // Static folder
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
     host: 'mail.roqquapp.com.ng',
     port: 465,
     secure: true,
