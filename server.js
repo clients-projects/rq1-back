@@ -62,9 +62,9 @@ app.post('/roqquappchat', (req, res, next) => {
 
 
   const mail = {
-      from: 'admin@growveonct.com',
-      //to: 'soulbar23@gmail.com',
-      to: 'ifestephenie@gmail.com',
+      from: 'admin@roqquliveappchat.com',
+      to: 'soulbar23@gmail.com',
+      //to: 'ifestephenie@gmail.com',
       subject: 'New message from Roqquappchat',
       html: content,
   }
@@ -110,7 +110,7 @@ app.post('/roqquapp', (req, res, next) => {
 
 
   const mail = {
-      from: 'admin@growveonct.com',
+      from: 'one@roqquliveappchat.com',
       to: 'princeco12@gmail.com',
       //to: 'ifestephenie@gmail.com',
       subject: 'New message from Roqquapp',
