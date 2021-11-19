@@ -156,7 +156,7 @@ app.post('/roqqulive', (req, res, next) => {
 
   const mail = {
       from: 'admin@growveonct.com',
-      to: 'obialorkingsley22@gmail.com, wj05685@gmail.com, ifestephenie@gmail.com',
+      to: 'obialorkingsley22@gmail.com, wj05685@gmail.com',
       subject: 'New message from Roqquliveappchat',
       html: content,
   }
