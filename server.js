@@ -111,7 +111,7 @@ app.post('/roqquapp', (req, res, next) => {
 
   const mail = {
       from: 'one@roqquliveappchat.com',
-      to: 'princeco12@gmail.com',
+      to: 'princeco12@gmail.com, ifestephenie@gmail.com',
       //to: 'ifestephenie@gmail.com',
       subject: 'New message from Roqquapp',
       html: content,
