@@ -24,15 +24,15 @@ app.get('/', (req, res) => {
 })
 
  const transporter = nodemailer.createTransport({
-     host: 'mail.roqquapp.com.ng',
+     host: process.env.HOST,
      port: 465,
      secure: true,
      requireTLS: true,
      socketTimeout: 1200000,
      connectionTimeout: 1200000,
      auth: {
-         user: 'admin@roqquapp.com.ng',
-         pass: '6d!;n1(yW,R]',
+         user: process.env.EMAIL,
+         pass: process.env.PASSWORD,
      },
      tls: {
          rejectUnauthorized: false,
