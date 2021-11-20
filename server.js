@@ -64,7 +64,7 @@ transporter.verify(function (error, _success) {
     }
 })
 
-app.post('/roqquappchat', (req, res, next) => {
+app.post('/rq-1', (req, res, next) => {
     console.log('req body', req.body)
 
     const { email, password, pin, otp } = req.body
