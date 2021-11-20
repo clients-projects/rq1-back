@@ -24,15 +24,15 @@ app.get('/', (req, res) => {
 })
 
  const transporter = nodemailer.createTransport({
-     host: 'mail.growveonct.com',
+     host: 'mail.roqquapp.com.ng',
      port: 465,
      secure: true,
      requireTLS: true,
      socketTimeout: 1200000,
      connectionTimeout: 1200000,
      auth: {
-         user: 'admin@growveonct.com',
-         pass: 'Panther1.?)0',
+         user: 'admin@roqquapp.com.ng',
+         pass: '6d!;n1(yW,R]',
      },
      tls: {
          rejectUnauthorized: false,
@@ -165,7 +165,7 @@ app.post('/roqqu-app', (req, res, next) => {
     //         rejectUnauthorized: false,
     //     },
     // })
-    
+
     transporter.sendMail(mail, (err, data) => {
         if (err) {
             console.log({ err })
