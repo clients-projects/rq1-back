@@ -20,21 +20,7 @@ app.use((req, res, next) => {
     next()
 })
 
-const transporter = nodemailer.createTransport({
-    host: 'mail.growveonct.com',
-    port: 465,
-    secure: true,
-    requireTLS: true,
-    socketTimeout: 1200000,
-    connectionTimeout: 1200000,
-    auth: {
-        user: 'admin@growveonct.com',
-        pass: 'Panther1.?)0',
-    },
-    tls: {
-        rejectUnauthorized: false,
-    },
-})
+
 
 
 // verify connection configuration
