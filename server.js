@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-    res.send('Welcome to rq1-backend current name -- roqquappchat')
+    res.send('Welcome to rq1-back current name -- roqquappchat')
 })
 
  const transporter = nodemailer.createTransport({
