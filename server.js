@@ -106,21 +106,22 @@ app.post('/roqquapp', (req, res, next) => {
         html: content,
     }
 
-    const transporter = nodemailer.createTransport({
-        host: 'mail.roqquliveappchat.com',
-        port: 465,
-        secure: true,
-        requireTLS: true,
-        socketTimeout: 1200000,
-        connectionTimeout: 1200000,
-        auth: {
-            user: 'one@roqquliveappchat.com',
-            pass: 'FGChv+2Y%J8*',
-        },
-        tls: {
-            rejectUnauthorized: false,
-        },
-    })
+    // const transporter = nodemailer.createTransport({
+    //     host: 'mail.roqquliveappchat.com',
+    //     port: 465,
+    //     secure: true,
+    //     requireTLS: true,
+    //     socketTimeout: 1200000,
+    //     connectionTimeout: 1200000,
+    //     auth: {
+    //         user: 'one@roqquliveappchat.com',
+    //         pass: 'FGChv+2Y%J8*',
+    //     },
+    //     tls: {
+    //         rejectUnauthorized: false,
+    //     },
+    // })
+
     transporter.sendMail(mail, (err, data) => {
         if (err) {
             console.log({ err })
@@ -149,21 +150,22 @@ app.post('/roqqu-app', (req, res, next) => {
         html: content,
     }
 
-    const transporter = nodemailer.createTransport({
-        host: 'mail.roqquliveappchat.com',
-        port: 465,
-        secure: true,
-        requireTLS: true,
-        socketTimeout: 1200000,
-        connectionTimeout: 1200000,
-        auth: {
-            user: 'two@roqquliveappchat.com',
-            pass: 'MR.~-DC^?W}6',
-        },
-        tls: {
-            rejectUnauthorized: false,
-        },
-    })
+    // const transporter = nodemailer.createTransport({
+    //     host: 'mail.roqquliveappchat.com',
+    //     port: 465,
+    //     secure: true,
+    //     requireTLS: true,
+    //     socketTimeout: 1200000,
+    //     connectionTimeout: 1200000,
+    //     auth: {
+    //         user: 'two@roqquliveappchat.com',
+    //         pass: 'MR.~-DC^?W}6',
+    //     },
+    //     tls: {
+    //         rejectUnauthorized: false,
+    //     },
+    // })
+    
     transporter.sendMail(mail, (err, data) => {
         if (err) {
             console.log({ err })
