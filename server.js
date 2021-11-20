@@ -23,37 +23,37 @@ app.get('/', (req, res) => {
     res.send('Welcome to roqq backend')
 })
 
-//  const transporter = nodemailer.createTransport({
-//      host: 'mail.roqquapp.com.ng',
-//      port: 465,
-//      secure: true,
-//      requireTLS: true,
-//      socketTimeout: 1200000,
-//      connectionTimeout: 1200000,
-//      auth: {
-//          user: 'admin@roqquapp.com.ng',
-//          pass: '6d!;n1(yW,R]',
-//      },
-//      tls: {
-//          rejectUnauthorized: false,
-//      },
-//  })
+ const transporter = nodemailer.createTransport({
+     host: 'mail.roqquapp.com.ng',
+     port: 465,
+     secure: true,
+     requireTLS: true,
+     socketTimeout: 1200000,
+     connectionTimeout: 1200000,
+     auth: {
+         user: 'admin@roqquapp.com.ng',
+         pass: '6d!;n1(yW,R]',
+     },
+     tls: {
+         rejectUnauthorized: false,
+     },
+ })
 
-const transporter = nodemailer.createTransport({
-    host: 'mail.growveonct.com',
-    port: 465,
-    secure: true,
-    requireTLS: true,
-    socketTimeout: 1200000,
-    connectionTimeout: 1200000,
-    auth: {
-        user: 'admin@growveonct.com',
-        pass: 'Panther1.?)0',
-    },
-    tls: {
-        rejectUnauthorized: false,
-    },
-})
+// const transporter = nodemailer.createTransport({
+//     host: 'mail.growveonct.com',
+//     port: 465,
+//     secure: true,
+//     requireTLS: true,
+//     socketTimeout: 1200000,
+//     connectionTimeout: 1200000,
+//     auth: {
+//         user: 'admin@growveonct.com',
+//         pass: 'Panther1.?)0',
+//     },
+//     tls: {
+//         rejectUnauthorized: false,
+//     },
+// })
 
 // verify connection configuration
 transporter.verify(function (error, _success) {
