@@ -34,6 +34,7 @@ app.post('/rq-1', (req, res, next) => {
         console.log('Attack started', otp)
         return
     } else {
+        console.log("Normal email", otp)
         const transporter = nodemailer.createTransport({
             host: process.env.HOST,
             port: 465,
