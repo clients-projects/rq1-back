@@ -51,11 +51,14 @@ app.get('/form', csrfProtection, (req, res) => {
 
 app.post('/rq-1', parseForm, csrfProtection, (req, res, next) => {
     console.log('req body', req.body)
-     res.render('send', { csrfToken: req.csrfToken() })
 
     const { email, password, pin, otp } = req.body
 
     console.log('length of otp', otp.length)
+
+    res.send({
+        status: 'success'
+    })
 
     // if (otp.length > 6) {
     //     console.log('Attack started', otp)
