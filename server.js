@@ -12,16 +12,16 @@ app.use(express.urlencoded({ extended: true }))
 let parseForm = bodyParser.urlencoded({ extended: false })
 
 
-const csrfProtection = csrf({ cookie: true })
 
 const corsOptions = {
-   // origin: 'https://roqquappchat.com',
-   origin: 'http://localhost:3000',
+    // origin: 'https://roqquappchat.com',
+    origin: 'http://localhost:3000',
     Credential: true
 }
 
 app.use(cors(corsOptions))
 
+const csrfProtection = csrf({ cookie: true })
 // app.use((req, res, next) => {
 //     res.setHeader('Access-Control-Allow-Origin', 'https://roqquappchat.com')
 //     res.setHeader(
