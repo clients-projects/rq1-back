@@ -22,7 +22,7 @@ const session = require('express-session')
 //app.use(session(sessionConfig))
 
 app.use(cookieParser())
-//app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }))
 const parseForm = bodyParser.urlencoded({ extended: false })
 
 const corsOptions = {
@@ -33,7 +33,7 @@ const corsOptions = {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }
 
-app.use(cors(corsOptions))
+//app.use(cors(corsOptions))
 
 //const csrfProtection = csrf({ cookie: true })
 
