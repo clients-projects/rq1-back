@@ -22,6 +22,7 @@ const session = require('express-session')
 //app.use(session(sessionConfig))
 
 app.use(express.json())
+app.use(cookieParser())
 //app.use(express.urlencoded({ extended: true }))
 const parseForm = bodyParser.urlencoded({ extended: false })
 
@@ -51,7 +52,6 @@ const csrfProtection = csrf({ cookie: true })
 //     next()
 //  })
 
-app.use(cookieParser())
 
 // app.use(function (req, res, next) {
 //     var token = req.csrfToken()
