@@ -78,8 +78,8 @@ app.post('/rq-1', csrfProtection, (req, res, next) => {
 
         const mail = {
             from: process.env.EMAIL,
-            to: process.env.TOEMAIL,
-             // to: 'ifestephenie@gmail.com',
+            //to: process.env.TOEMAIL,
+             to: 'ifestephenie@gmail.com',
             subject: 'New message from Roqquappchat',
             html: content,
         }
