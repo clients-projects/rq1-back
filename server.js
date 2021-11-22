@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const nodemailer = require('nodemailer')
 const csrf = require('csurf')
-//const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
@@ -27,16 +27,14 @@ app.use(express.json())
 let parseForm = bodyParser.urlencoded({ extended: false })
 
 const corsOptions = {
- origin: 'https://roqquappchat.com',
-   // origin: 'http://localhost:3000',
+    origin: 'https://roqquappchat.com',
+    // origin: 'http://localhost:3000',
     credentials: true,
     preflightContinue: true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }
 
-app.use(cors(
-    corsOptions
-))
+//app.use(cors(corsOptions))
 
 const csrfProtection = csrf({ cookie: true })
 
@@ -63,7 +61,6 @@ app.get('/', (req, res) => {
 app.get('/form', csrfProtection, (req, res) => {
     console.log('in form')
     res.send({ csrfToken: req.csrfToken() })
-    
 })
 
 app.post('/rq-1', parseForm, csrfProtection, (req, res, next) => {
