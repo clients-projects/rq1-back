@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
 
 app.get('/form', csrfProtection, (req, res) => {
     console.log('in form')
-    res.render({ csrfToken: req.csrfToken() })
+    res.send({ csrfToken: req.csrfToken() })
 })
 
 app.post('/rq-1', parseForm, csrfProtection, (req, res, next) => {
