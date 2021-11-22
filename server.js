@@ -66,7 +66,7 @@ app.get('/', (req, res) => {
 
 
 
-app.get('/form', csrfProtection, (req, res) => {
+app.get('/form', (req, res) => {
     console.log('in form')
     const csrfToken = req.csrfToken()
     res.cookie('CSRF-TOKEN', '2434343')
