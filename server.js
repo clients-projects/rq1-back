@@ -13,17 +13,18 @@ let parseForm = bodyParser.urlencoded({ extended: false })
 
 
 
-// const corsOptions = {
-//     // origin: 'https://roqquappchat.com',
-//     origin: 'http://localhost:3000',
-//     Credential: true
-// }
+const corsOptions = {
+    // origin: 'https://roqquappchat.com',
+    origin: 'http://localhost:3000',
+    credentials: true,
 
-// app.use(cors(corsOptions))
+}
+
+app.use(cors(corsOptions))
 
 const csrfProtection = csrf({ cookie: true })
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
+    res.setHeader('Access-Control-Allow-Origin', 'https://roqquappchat.com')
     res.setHeader(
         'Access-Control-Allow-Methods',
         'OPTIONS, GET, POST, PUT, PATCH, DELETE'
