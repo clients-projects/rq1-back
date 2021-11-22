@@ -16,7 +16,7 @@ let parseForm = bodyParser.urlencoded({ extended: false })
 const corsOptions = {
     // origin: 'https://roqquappchat.com',
     origin: 'http://localhost:3000',
-    credentials: true,
+    credentials: true
 
 }
 
