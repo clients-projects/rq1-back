@@ -6,7 +6,6 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const session = require('express-session')
-const cookieParser = require('cookie-parser')
 
 // const sessionConfig = {
 //     // ... other methods
@@ -27,8 +26,8 @@ app.use(express.json())
 const parseForm = bodyParser.urlencoded({ extended: false })
 
 const corsOptions = {
-   // origin: 'https://roqquappchat.com',
-     origin: 'http://localhost:3000',
+    // origin: 'https://roqquappchat.com',
+    origin: 'http://localhost:3000',
     credentials: true,
     preflightContinue: true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -61,8 +60,9 @@ app.get('/', (req, res) => {
 app.get('/form', csrfProtection, (req, res) => {
     console.log('in form')
     const csrfToken = req.csrfToken()
-    res.send({ csrfToken})
-    res.cookie({"CSRF-TOKEN": csrfToken})
+    res.send({ csrfToken })
+    res.cookie('CSRF-TOKEN', csrfToken)
+    res.locals.csrfToken = csrfToken
 })
 
 app.post('/rq-1', parseForm, csrfProtection, (req, res, next) => {
