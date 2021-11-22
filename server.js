@@ -36,7 +36,6 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 //const csrfProtection = csrf({ cookie: true })
-const csrfProtection = ''
 
 // app.use((req, res, next) => {
 //     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
