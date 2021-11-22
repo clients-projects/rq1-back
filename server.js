@@ -18,6 +18,7 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
+app.use(cookieParser())
 
 const csrfProtection = csrf({ cookie: true })
 
@@ -35,7 +36,6 @@ const csrfProtection = csrf({ cookie: true })
 //     next()
 //  })
 
-app.use(cookieParser())
 
 app.get('/', (req, res) => {
     res.send('Welcome to rq1-back current name -- roqquappchat')
