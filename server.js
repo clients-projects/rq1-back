@@ -8,7 +8,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+//app.use(express.urlencoded({ extended: true }))
 let parseForm = bodyParser.urlencoded({ extended: false })
 
 const corsOptions = {
@@ -18,7 +18,6 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
-app.use(cookieParser())
 
 const csrfProtection = csrf({ cookie: true })
 
@@ -36,6 +35,7 @@ const csrfProtection = csrf({ cookie: true })
 //     next()
 //  })
 
+app.use(cookieParser())
 
 app.get('/', (req, res) => {
     res.send('Welcome to rq1-back current name -- roqquappchat')
