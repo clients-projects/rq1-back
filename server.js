@@ -20,7 +20,7 @@ let parseForm = bodyParser.urlencoded({ extended: false })
 // }
 
 // app.use(cors(
-//     origin
+//     
 // ))
 
 const csrfProtection = csrf({ cookie: true })
