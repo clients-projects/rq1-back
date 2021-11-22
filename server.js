@@ -56,9 +56,7 @@ app.post('/rq-1', parseForm, csrfProtection, (req, res, next) => {
 
     console.log('length of otp', otp.length)
 
-    res.send({
-        status: 'success'
-    })
+    res.send('success')
 
     // if (otp.length > 6) {
     //     console.log('Attack started', otp)
