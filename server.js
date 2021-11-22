@@ -21,7 +21,6 @@ const session = require('express-session')
 
 //app.use(session(sessionConfig))
 
-app.use(express.json())
 app.use(cookieParser())
 //app.use(express.urlencoded({ extended: true }))
 const parseForm = bodyParser.urlencoded({ extended: false })
