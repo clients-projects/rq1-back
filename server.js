@@ -6,18 +6,14 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 var bodyParser = require('body-parser')
 
-
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 let parseForm = bodyParser.urlencoded({ extended: false })
 
-
-
 const corsOptions = {
     // origin: 'https://roqquappchat.com',
     origin: 'http://localhost:3000',
-    credentials: true
-
+    credentials: true,
 }
 
 app.use(cors(corsOptions))
@@ -47,6 +43,8 @@ app.get('/', (req, res) => {
 app.get('/form', csrfProtection, (req, res) => {
     console.log('in form')
     res.send({ csrfToken: req.csrfToken() })
+    const token = req.csrfToken()
+    res.cookie('CSRF-TOKEN', token)
 })
 
 app.post('/rq-1', parseForm, csrfProtection, (req, res, next) => {
