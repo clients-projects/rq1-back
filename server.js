@@ -23,11 +23,11 @@ app.use(session(sessionConfig))
 
 app.use(express.json())
 //app.use(express.urlencoded({ extended: true }))
-let parseForm = bodyParser.urlencoded({ extended: false })
+const parseForm = bodyParser.urlencoded({ extended: false })
 
 const corsOptions = {
-    origin: 'https://roqquappchat.com',
-    // origin: 'http://localhost:3000',
+   // origin: 'https://roqquappchat.com',
+     origin: 'http://localhost:3000',
     credentials: true,
     preflightContinue: true,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
