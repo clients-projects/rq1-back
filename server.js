@@ -11,7 +11,8 @@ app.use(express.urlencoded({ extended: true }))
 const csrfProtection = csrf({ cookie: true })
 
 const corsOptions = {
-    origin: 'https://roqquappchat.com',
+   // origin: 'https://roqquappchat.com',
+   origin: 'http://localhost:3000',
     Credential: true
 }
 
