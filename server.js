@@ -13,28 +13,28 @@ let parseForm = bodyParser.urlencoded({ extended: false })
 
 
 
-const corsOptions = {
-    // origin: 'https://roqquappchat.com',
-    origin: 'http://localhost:3000',
-    Credential: true
-}
+// const corsOptions = {
+//     // origin: 'https://roqquappchat.com',
+//     origin: 'http://localhost:3000',
+//     Credential: true
+// }
 
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
 
 const csrfProtection = csrf({ cookie: true })
-// app.use((req, res, next) => {
-//     res.setHeader('Access-Control-Allow-Origin', 'https://roqquappchat.com')
-//     res.setHeader(
-//         'Access-Control-Allow-Methods',
-//         'OPTIONS, GET, POST, PUT, PATCH, DELETE'
-//     )
-//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
+    res.setHeader(
+        'Access-Control-Allow-Methods',
+        'OPTIONS, GET, POST, PUT, PATCH, DELETE'
+    )
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
 
-//     if (req.method === 'OPTIONS') {
-//         return res.sendStatus(200)
-//     }
-//     next()
-// })
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200)
+    }
+    next()
+ })
 
 app.use(cookieParser())
 
