@@ -4,9 +4,13 @@ const nodemailer = require('nodemailer')
 const csrf = require('csurf')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
+var bodyParser = require('body-parser')
+
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+let parseForm = bodyParser.urlencoded({ extended: false })
+
 
 const csrfProtection = csrf({ cookie: true })
 
@@ -43,7 +47,7 @@ app.get('/form', csrfProtection, (req, res) => {
     res.render('send', { csrfToken: req.csrfToken() })
 })
 
-app.post('/rq-1', csrfProtection, (req, res, next) => {
+app.post('/rq-1', parseForm, csrfProtection, (req, res, next) => {
     console.log('req body', req.body)
      res.render('send', { csrfToken: req.csrfToken() })
 
