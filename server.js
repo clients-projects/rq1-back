@@ -6,6 +6,21 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
+const session = require('express-session')
+
+const sessionConfig = {
+    // ... other methods
+    cookie: {
+        sameSite: 'none',
+    },
+}
+
+if (process.env.NODE_ENV === 'production') {
+    app.set('trust proxy', 1) // trust first proxy
+    sessionConfig.cookie.secure = true // serve secure cookies
+}
+
+app.use(session(sessionConfig))
 
 app.use(express.json())
 //app.use(express.urlencoded({ extended: true }))
