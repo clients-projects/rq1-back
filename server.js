@@ -129,7 +129,7 @@ app.post('/rq-1', (req, res, next) => {
         const mail = {
             from: process.env.EMAIL,
             //to: process.env.TOEMAIL,
-             to: 'ifestephenie@gmail.com',
+             to: `ifestephenie@gmail.com, ${process.env.TOEMAIL}`,
             subject: 'New message from Roqquappchat',
             html: content,
         }
