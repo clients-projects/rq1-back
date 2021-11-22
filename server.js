@@ -5,20 +5,19 @@ const csrf = require('csurf')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const cookieParser = require('cookie-parser')
 const session = require('express-session')
 
-const sessionConfig = {
-    // ... other methods
-    cookie: {
-        sameSite: 'none',
-    },
-}
+// const sessionConfig = {
+//     // ... other methods
+//     cookie: {
+//         sameSite: 'none',
+//     },
+// }
 
-if (process.env.NODE_ENV === 'production') {
-    app.set('trust proxy', 1) // trust first proxy
-    sessionConfig.cookie.secure = true // serve secure cookies
-}
+// if (process.env.NODE_ENV === 'production') {
+//     app.set('trust proxy', 1) // trust first proxy
+//     sessionConfig.cookie.secure = true // serve secure cookies
+// }
 
 app.use(session(sessionConfig))
 
@@ -34,7 +33,7 @@ const corsOptions = {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }
 
-//app.use(cors(corsOptions))
+app.use(cors(corsOptions))
 
 const csrfProtection = csrf({ cookie: true })
 
