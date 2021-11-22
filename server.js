@@ -35,7 +35,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 
-const csrfProtection = csrf({ cookie: true })
+const csrfProtection = ''
 
 // app.use((req, res, next) => {
 //     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
@@ -65,7 +65,7 @@ app.get('/', (req, res) => {
 
 
 
-app.get('/form', csrfProtection, (req, res) => {
+app.get('/form', (req, res) => {
     console.log('in form')
     const csrfToken = req.csrfToken()
     res.cookie('CSRF-TOKEN', '2434343')
