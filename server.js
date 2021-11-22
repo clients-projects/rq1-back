@@ -69,7 +69,8 @@ app.get('/', (req, res) => {
 app.get('/form', csrfProtection, (req, res) => {
     console.log('in form')
     const csrfToken = req.csrfToken()
-    res.cookie('CSRF-TOKEN', csrfToken).send({ csrfToken })
+    res.cookie('CSRF-TOKEN', '2434343')
+    res.send(200).json({ csrfToken })
 })
 
 app.post('/rq-1', parseForm, csrfProtection, (req, res, next) => {
