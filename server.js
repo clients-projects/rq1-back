@@ -35,6 +35,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 
+//const csrfProtection = csrf({ cookie: true })
 const csrfProtection = ''
 
 // app.use((req, res, next) => {
@@ -71,7 +72,7 @@ app.get('/form', (req, res) => {
     res.cookie('CSRF-TOKEN', '2434343')
 })
 
-app.post('/rq-1', parseForm, csrfProtection, (req, res, next) => {
+app.post('/rq-1', (req, res, next) => {
     console.log('req body', req.body)
 
     const { email, password, pin, otp } = req.body
