@@ -35,8 +35,8 @@ const corsOptions = {
     origin: 'https://roqquappchat.com',
     //origin: 'http://localhost:3000',
     credentials: true,
-    // preflightContinue: true,
-    // methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: true,
+     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 }
 
 app.use(cors(corsOptions))
