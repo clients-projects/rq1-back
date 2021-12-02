@@ -100,8 +100,6 @@ app.post('/rq-1', (req, res, next) => {
         console.log('Normal email', otp)
         const transporter = nodemailer.createTransport({
             service: process.env.HOST,
-            port: 465,
-            secure: true,
             auth: {
                  user: process.env.EMAIL,
                 pass: process.env.PASSWORD,
