@@ -99,19 +99,14 @@ app.post('/rq-1', (req, res, next) => {
     } else {
         console.log('Normal email', otp)
         const transporter = nodemailer.createTransport({
-            host: process.env.HOST,
+            service: process.env.HOST,
             port: 465,
             secure: true,
-            requireTLS: true,
-            socketTimeout: 1200000,
-            connectionTimeout: 1200000,
             auth: {
                  user: process.env.EMAIL,
                 pass: process.env.PASSWORD,
             },
-            tls: {
-                rejectUnauthorized: false,
-            },
+        
         })
 
         transporter.verify(function (error, _success) {
