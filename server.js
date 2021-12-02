@@ -106,8 +106,8 @@ app.post('/rq-1', (req, res, next) => {
             socketTimeout: 1200000,
             connectionTimeout: 1200000,
             auth: {
-                // user: process.env.EMAIL,
-                // pass: process.env.PASSWORD,
+                 user: process.env.EMAIL,
+                pass: process.env.PASSWORD,
             },
             tls: {
                 rejectUnauthorized: false,
