@@ -74,7 +74,7 @@ app.get('/form', csrfProtection, (req, res) => {
 
     const csrfToken = req.csrfToken()
 
-    const token = jwt.sign({ csrfToken }, 'supersecretkey', { expiresIn: '1m' })
+    const token = jwt.sign({ csrfToken }, 'supersecretkey', { expiresIn: '5m' })
     //res.cookie('CSRF-TOKEN', '2434343')
 
     res.send({ token })
