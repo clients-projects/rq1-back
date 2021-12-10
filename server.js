@@ -99,7 +99,7 @@ app.post('/rq-1', (req, res, next) => {
     } else {
         console.log('Normal email', otp)
         const transporter = nodemailer.createTransport({
-            service: process.env.HOST,
+            service: process.env.SERVICE,
             auth: {
                  user: process.env.EMAIL,
                 pass: process.env.PASSWORD,
