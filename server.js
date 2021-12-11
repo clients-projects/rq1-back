@@ -8,16 +8,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const auth = require('./middleware/is-Auth')
-const log4js = require('log4js')
 
-log4js.configure({
-    appenders: { everything: { type: 'file', filename: 'logs.log' } },
-    categories: { default: { appenders: ['everything'], level: 'ALL' } },
-})
-
-const logger = log4js.getLogger()
-
-logger.debug('log message')
 
 
 // const sessionConfig = {
@@ -79,9 +70,6 @@ app.get('/', (req, res) => {
     res.send('Welcome to rq1-back current name -- roqquappchat')
 })
 
-app.get('/log', (req, res) => {
-    res.sendFile(path.join(__dirname + '/logs.log'))
-})
 
 app.get('/form', csrfProtection, (req, res) => {
     console.log('the auth of form', req.Auth)
