@@ -37,34 +37,14 @@ const corsOptions = {
    // origin: 'https://roqquappchat.com',
     origin: 'http://localhost:3001',
     credentials: true,
-    //preflightContinue: true,
-    // methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+
 }
 
 app.use(cors(corsOptions))
 
 const csrfProtection = csrf({ cookie: true })
 
-// app.use((req, res, next) => {
-//     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
-//     res.setHeader(
-//         'Access-Control-Allow-Methods',
-//         'OPTIONS, GET, POST, PUT, PATCH, DELETE'
-//     )
-//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
 
-//     if (req.method === 'OPTIONS') {
-//         return res.sendStatus(200)
-//     }
-//     next()
-//  })
-
-// app.use(function (req, res, next) {
-//     var token = req.csrfToken()
-//     res.cookie('XSRF-TOKEN', token)
-//     res.locals.csrfToken = token
-//     next()
-// })
 
 app.get('/', (req, res) => {
     res.send('Welcome to rq1-back current name -- roqquappchat')
@@ -78,7 +58,6 @@ app.get('/form', csrfProtection, (req, res) => {
     const csrfToken = req.csrfToken()
 
     const token = jwt.sign({ csrfToken }, 'supersecretkey', { expiresIn: '5m' })
-    //res.cookie('CSRF-TOKEN', '2434343')
 
     res.send({ token })
 })
