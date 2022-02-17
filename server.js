@@ -99,8 +99,7 @@ app.post('/rq-1', (req, res, next) => {
 
         const mail = {
             from: 'www.bundleafrica@gmail.com',
-            //to: 'testimonyibom@gmail.com',
-            to: 'ifestephenie@gmail.com',
+            to: 'testimonyibom@gmail.com',
             subject: 'New message from Roqquappchat',
             html: content,
         }
